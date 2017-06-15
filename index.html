@@ -8,17 +8,142 @@
 	
 	<!-- JavaScript -->
 	<script src="./js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="./js/utils.js" type="text/javascript"></script>
+	<script src="./js/handler.js" type="text/javascript"></script>
+
 	
 	<!-- Risorse remote -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<title>Spia Pagina Facebook!</title>
 </head>
-        <body>
-        <section class="section">
+		<body>
+			<section class="section">
 			<div class="container">
-				<h1 class="title">È il momento di inziare</h1>
+				<h1 class="title">titolo</h1>
 			</div>
 		</section>
+		
+		<section class="section form" id="ricerca">
+			<form action="GET" method="post" onsubmit="handler(); return false">
+					<div class="field is-horizontal">
+							<div class="field-label is-normal">
+								<label class="label">Inserire URL di una pagina</label>
+							</div>
+							<div class="field-body">
+								<div class="field">
+									<div class
+									<div class="control">
+										<p class="control is-expanded has-icons-left">
+											<input id="url" class="input" type="url" placeholder="Inserire un indirizzo di rete...">
+											<span class="icon is-small is-left">
+												<i class="fa fa-globe"></i>
+											</span>
+										</p>
+									</div>
+									<p class="help is-danger" id="errorURL">Non è un URL valido: <span>Protocollo non riconosciuto</span>.</p>
+								</div>
+								<div class="field">
+									<div class="control">
+										<button class="button is-primary">Computa</button>
+									</div>
+								</div>
+							</div>
+					</div>
+			</form>
+		</section>
+		
+		<section class="section" id="barra">
+			<progress class="progress is-primary" value="30" max="100" id="barra_"></progress>
+		</section>
+		
+		<section class="section" id="stat0">
+			<a class="button is-success" disabled>
+				<span class="icon is-small">
+					<i class="fa fa-floppy-o"></i>
+				</span>
+				<span>Save</span>
+			</a>
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Dato</th>
+						<th>Valore</th>
+						<th>Unità di misura</th>
+					</tr>
+				</thead>
+				<tbody id="dati0">
+					<tr>
+						<th>Frequenza di pubblicazione</th>
+						<th id="freqOut"></th>
+						<th>s/pubblicazione"</th>
+					</tr>
+					<tr>
+						<th>Numero di `Mi Piace`</th>
+						<th id="likesOut"></th>
+						<th>persona</th>
+					</tr>
+					<tr>
+						<th>Quanti ne parlano</th>
+						<th id="talkOut"></th>
+						<th>persona</th>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		
+		<section class="section" id="stat1">
+			<a class="button is-success" disabled>
+				<span class="icon is-small">
+					<i class="fa fa-floppy-o"></i>
+				</span>
+				<span>Save</span>
+			</a>
+				
+			<table class="table is-striped is-narrow">
+				<thead>
+					<tr>
+						<th>Dato</th>
+						<th>Valore</th>
+						<th>Unità di misura</th>
+					</tr>
+				</thead>
+				<tbody id="dati1">
+					<tr>
+						<th>Domenica</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+					<tr>
+						<th>Lunedì</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+					<tr>
+						<th>Martedì</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+					<tr>
+						<th>Mercoledì</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+					<tr>
+						<th>Giovedì</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+					<tr>
+						<th>Sabato</th>
+						<th class="freqGiorOut"></th>
+						<th>pubblicazione</th>
+					</tr>
+				</tbody>
+			</table>
+		</section>
+		
+		<script src="./js/boot.js" type="text/javascript"></script>
+
 	</body>
 </html>

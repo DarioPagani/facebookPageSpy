@@ -27,3 +27,26 @@ function download(filename, text)
     else
         pom.click();
 }
+
+/**
+ * Funzione che data una tabella ne genera un CVS
+ * @param	id				ID add una tabella
+ * @return	String			stringa cvs
+ */
+
+function toCVS(id)
+{
+	// Variabili
+	var cvs = "";
+	var righe = $(id).find("tr");
+	
+	for(var i = 0 ; i < righe.length; i++)
+	{
+		var colonne = righe[i].find("th");
+		for(var j = 0; j < colonne.length; j++)
+			cvs = cvs.concat(colonne[j] + ",")
+		cvs += '\n';
+	}
+	
+	return cvs;
+}
