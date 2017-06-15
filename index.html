@@ -18,11 +18,22 @@
 	<title>Spia Pagina Facebook!</title>
 </head>
 		<body>
-			<section class="section">
-			<div class="container">
-				<h1 class="title">titolo</h1>
+		<!-- Questo verrà nascosto -->
+		<article class="message is-danger" id="noJS">
+			<div class="message-header">
+				<p>È impossibile usare questo applicativo</p>
 			</div>
-		</section>
+			<div class="message-body content">
+				<p>Questo browser WEB non supporta il JavaScript.
+				Questo significa che non è possibile adoperare i contenuti qua sotto.
+				È inutile tentare di utilizzare questa pagina WEB! Tanto non funzionerà<br>
+				Controllare nella documentazione del vostro browser se è possibile abilitare
+				il supporto al JavaScript e come.<br>
+				Se si ritiene che questo sia un errore contattare l'amministratore di sistema
+				</p>
+			</div>
+		</article>
+		
 		
 		<section class="section form" id="ricerca">
 			<form action="GET" method="post" onsubmit="handler(); return false">
@@ -143,7 +154,23 @@
 			</table>
 		</section>
 		
+		<!-- Finestre popout! -->
+		<div class="modal" id="auth">
+			<div class="modal-background"></div>
+			<div class="modal-content message is-info">
+				<div class="message-header"><p>È necessario autenticarsi</p></div>
+				<div class="message-body">
+					<p>Premere sul pulsante per accedere a Facebook ed utilizzare questa pagina!</p>
+					<a class="button is-info is-fullwidth" onclick="entra()">
+						<span class="icon">
+							<i class="fa fa-facebook-official"></i>
+					    </span>
+					    <span>Autenticati su Facebook</span>
+					   </a>
+				</div>
+			</div>
+		</div>
+		
 		<script src="./js/boot.js" type="text/javascript"></script>
-
 	</body>
 </html>

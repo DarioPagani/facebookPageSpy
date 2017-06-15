@@ -1,6 +1,9 @@
+$( document ).ready(function()
+{
+$("#noJS").remove();
+$("#auth").addClass("is-active");
 
-
-  window.fbAsyncInit = function() {
+window.fbAsyncInit = function() {
     FB.init({
       appId            : '316775572096905',
       autoLogAppEvents : true,
@@ -9,6 +12,7 @@
     });
     FB.AppEvents.logPageView();
   };
+  console.log("Sonoscemo)");
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -18,4 +22,15 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-FB.login(function(){}, {scope: 'publish_actions'});
+});
+
+$("#auth").find("a").on('click',function() 
+{
+	$(this).prop("disabled",true);
+	
+	FB.login(function()
+		{
+			$("#auth").removeClass("is-active");
+		}, {scope: 'publish_actions'});
+
+});

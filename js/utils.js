@@ -34,7 +34,7 @@ function download(filename, text)
  * @return	String			stringa cvs
  */
 
-function toCVS(id)
+function exportCVS(id)
 {
 	// Variabili
 	var cvs = "";
@@ -42,9 +42,9 @@ function toCVS(id)
 	
 	for(var i = 0 ; i < righe.length; i++)
 	{
-		var colonne = righe[i].find("th");
+		var colonne = $(righe[i]).find("th");
 		for(var j = 0; j < colonne.length; j++)
-			cvs = cvs.concat(colonne[j] + ",")
+			cvs = cvs.concat($(colonne[j]).text() + ",")
 		cvs += '\n';
 	}
 	
