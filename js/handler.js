@@ -29,6 +29,9 @@ function handler()
 				}
 
 			});
+		
+		$("#barra_").val("5");
+
 			
 		$(".button").addClass("is-loading");
 		// Inzio
@@ -43,6 +46,9 @@ function handler()
 	return false;
 }
 
+var globalCount = 0;
+var globalLikeCount = 0;
+var globalNumber = 0;
 function calcoloFrequenza(id)
 {
 	FB.api("/"+id+"?fields=posts.limit(500)", function(e)
@@ -52,6 +58,30 @@ function calcoloFrequenza(id)
 			var distanze = new Array(date.length);
 			var pubblicazioni = [0, 0, 0, 0, 0, 0, 0];
 			
+			// Controllo numero commenti
+			// Ogni post viene su di un thread separato per ovvi motivi
+			globalCount = 0;
+			globalNumber = date.length;
+			for(var i = 0; i < date.length; i++)
+				setTimeout(function(i)
+				{
+					FB.api('/'+e.posts.data[i].id+"?fields=comments.limit(1200),likes.limit(1200)", function(e)
+						{
+							try
+							{
+								globalCount+=e.comments.data.length;
+								globalLikeCount+=e.likes.data.length;
+							}
+							catch(err)
+							{
+								console.error("Too big to fail!\n"+err.toString());
+								globalNumber--;
+							}
+							
+							if(--semaforo == 0)
+								activeDownload();
+						})
+				}, 0, i, ++semaforo);
 			
 			// Creazione delle date
 			for(var i = 0; i < date.length; i++)
@@ -66,7 +96,8 @@ function calcoloFrequenza(id)
 				$(campi[i]).text(pubblicazioni[i]);
 			
 			// Computazione della media matematica
-			$("#freqOut").text((date[0].getTime() - date[date.length - 1].getTime()) / (date.length-1) / 1000);
+			console.log(date)
+			$("#freqOut").text(((date[0].getTime() - date[(date.length - 1)].getTime()) / (date.length-1) / 1000 / 60).toFixed());
 			console.log(date[0] + '\nUltimo:' + date[date.length -1])
 			
 			if(--semaforo == 0)
@@ -76,10 +107,11 @@ function calcoloFrequenza(id)
 
 function calcoloInfo(id)
 {
-	FB.api('/' + id + "?fields=fan_count,talking_about_count", function(e)
+	FB.api('/' + id + "?fields=fan_count,talking_about_count,name", function(e)
 		{
 			$("#likesOut").text(e.fan_count);
 			$("#talkOut").text(e.talking_about_count);
+			$("#pageName").text(e.name);
 		});
 		
 	if(--semaforo == 0)

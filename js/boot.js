@@ -1,9 +1,8 @@
-const HTMLDev = true;
+const HTMLDev = false;
 
 $( document ).ready(function()
 {
 $("#noJS").remove();
-$("#tab1").hide();
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -39,13 +38,25 @@ if(!HTMLDev)
 	});
 }
 
+// INZIALIAZZAZIONE PULSANTI
 $(".csv").on("click", function()
 {
 	if(typeof $(this).attr("disabled") != "undefined")
 		return;
 	$(this).addClass("is-loading");
+	console.log($(this));
 	download("export"+(new Date()).toISOString()+".cvs", exportCVS('#'+$(this).parent().find("tbody").attr("id")))
 	$(this).removeClass("is-loading");
 
 })
+
+// INIZIALIZZAZIONE TABELLE
+$("#tab1").hide();
+$("#tabH").find("a").on("click", function()
+{
+	$("#tabH").find("li").removeClass("is-active");
+	$(this).parent().addClass("is-active");
+	$(".tabF").hide();
+	$("#tab" + $(this).parent().attr("id")).show();
+});
 });

@@ -83,7 +83,7 @@
 						<th>Unità di misura</th>
 					</tr>
 				</thead>
-				<tbody id="dati0">
+				<tbody id="info">
 					<tr>
 						<th>Nome della pagina</th>
 						<th id="pageName"></th>
@@ -92,7 +92,7 @@
 					<tr>
 						<th>Frequenza di pubblicazione</th>
 						<th id="freqOut"></th>
-						<th>s/pubblicazione</th>
+						<th>min/pubblicazione</th>
 					</tr>
 					<tr>
 						<th>`Mi Piace` medi per pubblicazione</th>
@@ -125,13 +125,13 @@
 		
 		<section class="section" id="stat1">
 			<div class="tabs">
-				<ul>
-					<li class="is-active"><a>Giornaliero</a></li>
-					<li><a>Mensile</a></li>
-					<li><a>Annuale</a></li>
+				<ul id="tabH">
+					<li id="0" class="is-active"><a>Giornaliero</a></li>
+					<li id="1"><a>Mensile</a></li>
+					<li id="2"><a>Annuale</a></li>
 				</ul>
 			</div>
-			<div id="tab0">
+			<div id="tab0" class="tabF">
 				<a class="button is-success csv" disabled>
 					<span class="icon is-small">
 						<i class="fa fa-floppy-o"></i>
@@ -182,7 +182,7 @@
 				</table>
 			</div>
 			
-			<div id="tab1">
+			<div id="tab1" class="tabF">
 				<a class="button is-success csv" disabled>
 					<span class="icon is-small">
 						<i class="fa fa-floppy-o"></i>
@@ -264,6 +264,7 @@
 			</div>
 			
 			<div id="tab2">
+				<p>Nulla da mostrare qua</p>
 			</div>
 		</section>
 		

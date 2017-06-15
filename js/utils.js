@@ -53,6 +53,9 @@ function exportCVS(id)
 
 function activeDownload()
 {
+	$("#commPostOut").text((globalCount / globalNumber).toFixed());
+	$("#likePostOut").text((globalLikeCount / globalNumber).toFixed());
+	
 	$(".button").removeAttr("disabled");
 	$(".button").removeClass("is-loading");
 }
