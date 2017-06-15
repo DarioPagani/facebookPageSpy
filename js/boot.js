@@ -1,7 +1,9 @@
+const HTMLDev = true;
+
 $( document ).ready(function()
 {
 $("#noJS").remove();
-$("#auth").addClass("is-active");
+$("#tab1").hide();
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -22,15 +24,28 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-});
-
-$("#auth").find("a").on('click',function() 
+if(!HTMLDev)
 {
-	$(this).prop("disabled",true);
-	
-	FB.login(function()
-		{
-			$("#auth").removeClass("is-active");
-		}, {scope: 'publish_actions'});
+	$("#auth").addClass("is-active");
+	$("#auth").find("a").on('click',function() 
+	{
+		$(this).prop("disabled",true);
+		
+		FB.login(function()
+			{
+				$("#auth").removeClass("is-active");
+			}, {scope: 'publish_actions'});
 
+	});
+}
+
+$(".csv").on("click", function()
+{
+	if(typeof $(this).attr("disabled") != "undefined")
+		return;
+	$(this).addClass("is-loading");
+	download("export"+(new Date()).toISOString()+".cvs", exportCVS('#'+$(this).parent().find("tbody").attr("id")))
+	$(this).removeClass("is-loading");
+
+})
 });

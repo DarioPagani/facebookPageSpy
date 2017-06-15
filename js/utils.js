@@ -50,3 +50,9 @@ function exportCVS(id)
 	
 	return cvs;
 }
+
+function activeDownload()
+{
+	$(".button").removeAttr("disabled");
+	$(".button").removeClass("is-loading");
+}

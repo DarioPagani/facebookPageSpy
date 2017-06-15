@@ -69,7 +69,7 @@
 		</section>
 		
 		<section class="section" id="stat0">
-			<a class="button is-success" disabled>
+			<a class="button is-success csv" disabled>
 				<span class="icon is-small">
 					<i class="fa fa-floppy-o"></i>
 				</span>
@@ -85,9 +85,24 @@
 				</thead>
 				<tbody id="dati0">
 					<tr>
+						<th>Nome della pagina</th>
+						<th id="pageName"></th>
+						<th>char*</th>
+					</tr>
+					<tr>
 						<th>Frequenza di pubblicazione</th>
 						<th id="freqOut"></th>
-						<th>s/pubblicazione"</th>
+						<th>s/pubblicazione</th>
+					</tr>
+					<tr>
+						<th>`Mi Piace` medi per pubblicazione</th>
+						<th id="likePostOut"></th>
+						<th>`Mi Piace`/pubblicazione</th>
+					</tr>
+					<tr>
+						<th>commenti medi per pubblicazione</th>
+						<th id="commPostOut"></th>
+						<th>commento/pubblicazione</th>
 					</tr>
 					<tr>
 						<th>Numero di `Mi Piace`</th>
@@ -99,59 +114,157 @@
 						<th id="talkOut"></th>
 						<th>persona</th>
 					</tr>
+					<tr>
+						<th>Risposte</th>
+						<th id="feelOut"></th>
+						<th>risposta/commento</th>
+					</tr>
 				</tbody>
 			</table>
 		</section>
 		
 		<section class="section" id="stat1">
-			<a class="button is-success" disabled>
-				<span class="icon is-small">
-					<i class="fa fa-floppy-o"></i>
-				</span>
-				<span>Save</span>
-			</a>
+			<div class="tabs">
+				<ul>
+					<li class="is-active"><a>Giornaliero</a></li>
+					<li><a>Mensile</a></li>
+					<li><a>Annuale</a></li>
+				</ul>
+			</div>
+			<div id="tab0">
+				<a class="button is-success csv" disabled>
+					<span class="icon is-small">
+						<i class="fa fa-floppy-o"></i>
+					</span>
+					<span>Save</span>
+				</a>
+					
+				<table class="table is-striped is-narrow">
+					<thead>
+						<tr>
+							<th>Dato</th>
+							<th>Valore</th>
+							<th>Unità di misura</th>
+						</tr>
+					</thead>
+					<tbody id="dati0">
+						<tr>
+							<th>Domenica</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Lunedì</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Martedì</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Mercoledì</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Giovedì</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Sabato</th>
+							<th class="freqGiorOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div id="tab1">
+				<a class="button is-success csv" disabled>
+					<span class="icon is-small">
+						<i class="fa fa-floppy-o"></i>
+					</span>
+					<span>Save</span>
+				</a>
 				
-			<table class="table is-striped is-narrow">
-				<thead>
-					<tr>
-						<th>Dato</th>
-						<th>Valore</th>
-						<th>Unità di misura</th>
-					</tr>
-				</thead>
-				<tbody id="dati1">
-					<tr>
-						<th>Domenica</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-					<tr>
-						<th>Lunedì</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-					<tr>
-						<th>Martedì</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-					<tr>
-						<th>Mercoledì</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-					<tr>
-						<th>Giovedì</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-					<tr>
-						<th>Sabato</th>
-						<th class="freqGiorOut"></th>
-						<th>pubblicazione</th>
-					</tr>
-				</tbody>
-			</table>
+				<table class="table is-striped is-narrow">				
+					<thead>
+						<tr>
+							<th>Dato</th>
+							<th>Valore</th>
+							<th>Unità di misura</th>
+						</tr>
+					</thead>
+					<tbody id="dati1">
+						<tr>
+							<th>Gennaio</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Febbraio</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Marzo</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Aprile</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Maggio</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Giugno</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Luglio</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Settembre</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Ottobre</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Dicembre</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Giugno</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+						<tr>
+							<th>Giugno</th>
+							<th class="mesiOut"></th>
+							<th>pubblicazione</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div id="tab2">
+			</div>
 		</section>
 		
 		<!-- Finestre popout! -->
@@ -161,7 +274,7 @@
 				<div class="message-header"><p>È necessario autenticarsi</p></div>
 				<div class="message-body">
 					<p>Premere sul pulsante per accedere a Facebook ed utilizzare questa pagina!</p>
-					<a class="button is-info is-fullwidth" onclick="entra()">
+					<a class="button is-info is-fullwidth">
 						<span class="icon">
 							<i class="fa fa-facebook-official"></i>
 					    </span>

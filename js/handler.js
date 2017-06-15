@@ -1,3 +1,5 @@
+semaforo = 0;
+
 function handler()
 {
 	$("#errorURL").hide();
@@ -27,9 +29,11 @@ function handler()
 				}
 
 			});
+			
+		$(".button").addClass("is-loading");
 		// Inzio
-		setTimeout(calcoloFrequenza, 0,id);
-		setTimeout(calcoloInfo, 0,id);
+		setTimeout(calcoloFrequenza, 0,id, ++semaforo);
+		setTimeout(calcoloInfo, 0,id, ++semaforo);
 	}
 	catch(e)
 	{
@@ -65,7 +69,8 @@ function calcoloFrequenza(id)
 			$("#freqOut").text((date[0].getTime() - date[date.length - 1].getTime()) / (date.length-1) / 1000);
 			console.log(date[0] + '\nUltimo:' + date[date.length -1])
 			
-			
+			if(--semaforo == 0)
+				activeDownload();
 		});
 }
 
@@ -76,4 +81,7 @@ function calcoloInfo(id)
 			$("#likesOut").text(e.fan_count);
 			$("#talkOut").text(e.talking_about_count);
 		});
+		
+	if(--semaforo == 0)
+		activeDownload();
 }
