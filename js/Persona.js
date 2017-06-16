@@ -4,7 +4,7 @@
  * è una persona di Facebook
  * @atuhor: Dario Pagani <dario.pagani@itispisa.gov.it>
  */
- 
+
 class Persona
 {
 	constructor(id)

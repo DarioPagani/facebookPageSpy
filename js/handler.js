@@ -76,7 +76,7 @@ function calcoloFrequenza(id)
 							{
 								globalCount+=e.comments.data.length;
 								globalLikeCount+=e.likes.data.length;
-								
+
 								// Profilazione delle Persone
 								for(var i = 0; i < e.comments.data.length; i++)
 									setTimeout(function(commento)
@@ -87,13 +87,13 @@ function calcoloFrequenza(id)
 										}
 										catch(pr)
 										{
-											console.war("È andato male!\n" + pr.toString())
+											console.warn("È andato male!\n" + pr.toString())
 										}
-										
+
 										if(--semaforo == 0)
 											activeDownload();
 									}, 2,e.comments.data[i], ++semaforo);
-								
+
 							}
 							catch(err)
 							{
