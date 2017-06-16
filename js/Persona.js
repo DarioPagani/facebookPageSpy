@@ -49,7 +49,7 @@ class Interazioni extends Array
 		if(pos == -1)
 		{
 			var tmp = new Persona(persona);
-			tmp.comment.push({post: post, comment: comment});
+			tmp.comments.push({post: post, comment: comment});
 			this.pushPersona(tmp);
 		}
 		else

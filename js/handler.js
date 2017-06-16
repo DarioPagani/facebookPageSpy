@@ -49,6 +49,7 @@ function handler()
 var globalCount = 0;
 var globalLikeCount = 0;
 var globalNumber = 0;
+var globalProf = new Interazioni();
 function calcoloFrequenza(id)
 {
 	FB.api("/"+id+"?fields=posts.limit(1250){created_time,id}", function(e)
@@ -65,15 +66,34 @@ function calcoloFrequenza(id)
 			globalCount = 0;
 			globalLikeCount = 0;
 			globalNumber = date.length;
+			globalProf = new Interazioni();
 			for(var i = 0; i < date.length; i++)
 				setTimeout(function(i)
 				{
-					FB.api('/'+e.posts.data[i].id+"?fields=comments.limit(2000){id},likes.limit(2000){id}", function(e)
+					FB.api('/'+e.posts.data[i].id+"?fields=comments.limit(1500){id,from.fields(id)},likes.limit(1500){id}", function(e)
 						{
 							try
 							{
 								globalCount+=e.comments.data.length;
 								globalLikeCount+=e.likes.data.length;
+								
+								// Profilazione delle Persone
+								for(var i = 0; i < e.comments.data.length; i++)
+									setTimeout(function(commento)
+									{
+										try
+										{
+											globalProf.pushComment(commento.from.id,0, commento.id )
+										}
+										catch(pr)
+										{
+											console.war("È andato male!\n" + pr.toString())
+										}
+										
+										if(--semaforo == 0)
+											activeDownload();
+									}, 2,e.comments.data[i], ++semaforo);
+								
 							}
 							catch(err)
 							{
