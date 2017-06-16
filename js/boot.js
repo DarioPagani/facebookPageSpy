@@ -1,5 +1,7 @@
 const HTMLDev = !true;
 
+MT = new Multithread(8);
+
 $( document ).ready(function()
 {
 $("#noJS").remove();
@@ -13,7 +15,6 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();
   };
-  console.log("Sonoscemo)");
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -44,7 +45,6 @@ $(".csv").on("click", function()
 	if(typeof $(this).attr("disabled") != "undefined")
 		return;
 	$(this).addClass("is-loading");
-	console.log($(this));
 	download("export"+(new Date()).toISOString()+".csv", exportCVS('#'+$(this).parent().find("tbody").attr("id")))
 	$(this).removeClass("is-loading");
 

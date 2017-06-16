@@ -33,7 +33,6 @@ class Interazioni extends Array
 			{
 				return persona == e.id;
 			});
-		console.log(pos);
 		if(pos == -1)
 		{
 			var tmp = new Persona(persona);
