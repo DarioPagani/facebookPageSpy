@@ -81,18 +81,31 @@ function calcoloFrequenza(id)
 									globalLikeCount+=e.likes.data.length;
 
 								// Profilazione delle Persone
-								for(var i = 0; i < e.comments.data.length; i++)
-								{
-									try
+
+								if(typeof e.comments != "undefined")
+									for(var i = 0; i < e.comments.data.length; i++)
 									{
-										if(typeof e.comments != "undefined")
-											globalProf.pushComment(e.comments.data[i].from.id,undefined, e.comments.data[i].id )
+										try
+										{
+												globalProf.pushComment(e.comments.data[i].from.id,undefined, e.comments.data[i].id )
+										}
+										catch(pr)
+										{
+											console.warn("Non è stato possibile computare questo commento\n" + pr.toString())
+										}
 									}
-									catch(pr)
+								if(typeof e.likes != "undefined")
+									for(var i = 0; i < e.likes.data.length; i++)
 									{
-										console.warn("È andato male!\n" + pr.toString())
+										try
+										{
+												globalProf.pushLike(e.likes.data[i].id,undefined, null )
+										}
+										catch(pr)
+										{
+											console.warn("Non è stato possibile computare questo mi piace!\n" + pr.toString())
+										}
 									}
-								}
 
 
 							}
