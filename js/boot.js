@@ -1,7 +1,5 @@
 const HTMLDev = !true;
 
-MT = new Multithread(8);
-
 $( document ).ready(function()
 {
 $("#noJS").remove();
