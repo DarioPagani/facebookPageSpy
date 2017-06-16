@@ -4,18 +4,18 @@
 <head>
 	<meta charset="UTF-8" />
 	<!-- CSS -->
-	<link rel="stylesheet" href="./css/bulma.bootstrap.css" />	
-	
+	<link rel="stylesheet" href="./css/bulma.bootstrap.css" />
+
 	<!-- JavaScript -->
 	<script src="./js/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="./js/Persona.js" type="text/javascript"></script>
 	<script src="./js/utils.js" type="text/javascript"></script>
 	<script src="./js/handler.js" type="text/javascript"></script>
 
-	
+
 	<!-- Risorse remote -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<title>Spia Pagina Facebook!</title>
 </head>
 		<body>
@@ -34,8 +34,8 @@
 				</p>
 			</div>
 		</article>
-		
-		
+
+
 		<section class="section form" id="ricerca">
 			<form action="GET" method="post" onsubmit="handler(); return false">
 					<div class="field is-horizontal">
@@ -64,18 +64,12 @@
 					</div>
 			</form>
 		</section>
-		
+
 		<section class="section" id="barra">
 			<progress class="progress is-primary" value="30" max="100" id="barra_"></progress>
 		</section>
-		
+
 		<section class="section" id="stat0">
-			<a class="button is-success csv" disabled>
-				<span class="icon is-small">
-					<i class="fa fa-floppy-o"></i>
-				</span>
-				<span>Save</span>
-			</a>
 			<table class="table is-striped">
 				<thead>
 					<tr>
@@ -122,8 +116,14 @@
 					</tr>
 				</tbody>
 			</table>
+			<a class="button is-success csv" disabled>
+				<span class="icon is-small">
+					<i class="fa fa-floppy-o"></i>
+				</span>
+				<span>Save</span>
+			</a>
 		</section>
-		
+
 		<section class="section" id="stat1">
 			<div class="tabs">
 				<ul id="tabH">
@@ -133,13 +133,6 @@
 				</ul>
 			</div>
 			<div id="tab0" class="tabF">
-				<a class="button is-success csv" disabled>
-					<span class="icon is-small">
-						<i class="fa fa-floppy-o"></i>
-					</span>
-					<span>Save</span>
-				</a>
-					
 				<table class="table is-striped is-narrow">
 					<thead>
 						<tr>
@@ -181,17 +174,16 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
-			
-			<div id="tab1" class="tabF">
 				<a class="button is-success csv" disabled>
 					<span class="icon is-small">
 						<i class="fa fa-floppy-o"></i>
 					</span>
 					<span>Save</span>
 				</a>
-				
-				<table class="table is-striped is-narrow">				
+			</div>
+
+			<div id="tab1" class="tabF">
+				<table class="table is-striped is-narrow">
 					<thead>
 						<tr>
 							<th>Dato</th>
@@ -262,13 +254,26 @@
 						</tr>
 					</tbody>
 				</table>
-			</div>
-			
-			<div id="tab2">
-				<p>Nulla da mostrare qua</p>
+				<a class="button is-success csv" disabled>
+					<span class="icon is-medium">
+						<i class="fa fa-floppy-o"></i>
+					</span>
+					<span>Save</span>
+				</a>
 			</div>
 		</section>
-		
+
+		<section class="section" id="stat2">
+			<h1 class="title is-3">Profiling Persone</h1>
+			<div class="content">Foglio di calcolo con le persone che interaggiscono con la persona</div>
+			<a class="button is-success" id="nsa" disabled>
+				<span class="icon is-small">
+					<i class="fa fa-floppy-o"></i>
+				</span>
+				<span>Save</span>
+			</a>
+		</section>
+
 		<!-- Finestre popout! -->
 		<div class="modal" id="auth">
 			<div class="modal-background"></div>
@@ -285,7 +290,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<script src="./js/boot.js" type="text/javascript"></script>
 	</body>
 </html>

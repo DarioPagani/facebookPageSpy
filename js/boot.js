@@ -1,4 +1,4 @@
-const HTMLDev = false;
+const HTMLDev = !true;
 
 $( document ).ready(function()
 {
@@ -26,10 +26,10 @@ window.fbAsyncInit = function() {
 if(!HTMLDev)
 {
 	$("#auth").addClass("is-active");
-	$("#auth").find("a").on('click',function() 
+	$("#auth").find("a").on('click',function()
 	{
 		$(this).prop("disabled",true);
-		
+
 		FB.login(function()
 			{
 				$("#auth").removeClass("is-active");
@@ -50,6 +50,15 @@ $(".csv").on("click", function()
 
 })
 
+$("#nsa").on("click", function()
+{
+	if(typeof $(this).attr("disabled") != "undefined")
+		return;
+	$(this).addClass("is-loading");
+
+	console.log("nice");
+})
+
 // INIZIALIZZAZIONE TABELLE
 $("#tab1").hide();
 $("#tabH").find("a").on("click", function()
@@ -60,3 +69,8 @@ $("#tabH").find("a").on("click", function()
 	$("#tab" + $(this).parent().attr("id")).show();
 });
 });
+
+setInterval(function()
+{
+	console.log(semaforo);
+}, 2000);
