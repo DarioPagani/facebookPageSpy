@@ -45,7 +45,7 @@ $(".csv").on("click", function()
 		return;
 	$(this).addClass("is-loading");
 	console.log($(this));
-	download("export"+(new Date()).toISOString()+".cvs", exportCVS('#'+$(this).parent().find("tbody").attr("id")))
+	download("export"+(new Date()).toISOString()+".csv", exportCVS('#'+$(this).parent().find("tbody").attr("id")))
 	$(this).removeClass("is-loading");
 
 })
@@ -55,8 +55,8 @@ $("#nsa").on("click", function()
 	if(typeof $(this).attr("disabled") != "undefined")
 		return;
 	$(this).addClass("is-loading");
-
-	console.log("nice");
+	download("persone.csv", globalProf.toCVSString());
+	$(this).removeClass("is-loading");
 })
 
 // INIZIALIZZAZIONE TABELLE
@@ -72,5 +72,5 @@ $("#tabH").find("a").on("click", function()
 
 setInterval(function()
 {
-	console.log(semaforo);
-}, 2000);
+	$("#nThread").text(semaforo);
+}, 1200);

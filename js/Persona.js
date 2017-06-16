@@ -16,7 +16,7 @@ class Persona
 
 	toCVSString()
 	{
-		return this.id + ',' + this.like.length + ',' + this.comments.length + '\n';
+		return '\"' + this.id + "\"," + this.like.length + ',' + this.comments.length + '\n';
 	}
 }
 

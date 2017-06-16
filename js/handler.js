@@ -76,12 +76,12 @@ function calcoloFrequenza(id)
 							{
 								if(typeof e.comments != "undefined")
 									globalCount+=e.comments.data.length;
-									
+
 								if(typeof e.likes != "undefined")
 									globalLikeCount+=e.likes.data.length;
 
 								// Profilazione delle Persone
-								for(var i = 0; i < e.comments.data.length; i++)	
+								for(var i = 0; i < e.comments.data.length; i++)
 								{
 									try
 									{
@@ -93,7 +93,7 @@ function calcoloFrequenza(id)
 										console.warn("È andato male!\n" + pr.toString())
 									}
 								}
-								
+
 
 							}
 							catch(err)
@@ -126,9 +126,7 @@ function calcoloFrequenza(id)
 				$(campi[i]).text(pubblicazioniMensili[i]);
 
 			// Computazione della media matematica
-			console.log(date)
 			$("#freqOut").text(((date[0].getTime() - date[(date.length - 1)].getTime()) / (date.length-1) / 1000 / 60).toFixed());
-			console.log(date[0] + '\nUltimo:' + date[date.length -1])
 
 			if(--semaforo == 0)
 				activeDownload();
