@@ -74,15 +74,18 @@ function calcoloFrequenza(id)
 						{
 							try
 							{
-								globalCount+=e.comments.data.length;
-								globalLikeCount+=e.likes.data.length;
+								if(typeof e.comments != "undefined")
+									globalCount+=e.comments.data.length;
+									
+								if(typeof e.likes != "undefined")
+									globalLikeCount+=e.likes.data.length;
 
 								// Profilazione delle Persone
-								for(var i = 0, commento = e.comments.data[i]; i < e.comments.data.length; i++)	
+								for(var i = 0; i < e.comments.data.length; i++)	
 								{
 									try
 									{
-										globalProf.pushComment(commento.from.id,0, commento.id )
+										globalProf.pushComment(e.comments.data[i].from.id,undefined, e.comments.data[i].id )
 									}
 									catch(pr)
 									{

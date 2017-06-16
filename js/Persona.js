@@ -13,6 +13,11 @@ class Persona
 		this.like = new Array();
 		this.comments = new Array();
 	}
+	
+	toCVSString()
+	{
+		return this.id + ',' + this.like.length + ',' + this.comments.length + '\n';
+	}
 }
 
 class Interazioni extends Array
@@ -63,5 +68,14 @@ class Interazioni extends Array
 			{
 				return a.id - b.id;
 			});
+	}
+	
+	toCVSString()
+	{
+		var ret = "ID, numero 'Mi Piace', numero di commenti\n"
+		for(var i = 0; i < super.length; i++)
+			ret += this[i].toCVSString();
+		
+		return ret;
 	}
 }
