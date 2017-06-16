@@ -53,7 +53,7 @@ class Interazioni extends Array
 			this.pushPersona(tmp);
 		}
 		else
-			this[pos].comment.push({post: post, comment: comment});
+			this[pos].comments.push({post: post, comment: comment});
 	}
 
 	pushPersona(persona)
