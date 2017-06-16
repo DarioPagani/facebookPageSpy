@@ -85,7 +85,8 @@ function calcoloFrequenza(id)
 								{
 									try
 									{
-										globalProf.pushComment(e.comments.data[i].from.id,undefined, e.comments.data[i].id )
+										if(typeof e.comments != "undefined")
+											globalProf.pushComment(e.comments.data[i].from.id,undefined, e.comments.data[i].id )
 									}
 									catch(pr)
 									{

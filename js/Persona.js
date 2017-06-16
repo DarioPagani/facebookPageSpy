@@ -73,7 +73,7 @@ class Interazioni extends Array
 	toCVSString()
 	{
 		var ret = "ID, numero 'Mi Piace', numero di commenti\n"
-		for(var i = 0; i < super.length; i++)
+		for(var i = 0; i < this.length; i++)
 			ret = ret.concat(this[i].toCVSString());
 
 		return ret;
