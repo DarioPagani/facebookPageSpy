@@ -6,7 +6,7 @@ $("#noJS").remove();
 
 window.fbAsyncInit = function() {
     FB.init({
-      appId            : '316775572096905',
+      appId            : '316775572096905',		// TODO Inserire qua l'ID da sviluppo
       autoLogAppEvents : true,
       xfbml            : true,
       version          : 'v2.9'

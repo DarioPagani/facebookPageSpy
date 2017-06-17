@@ -94,7 +94,7 @@ function calcoloFrequenza(id)
 											console.warn("Non è stato possibile computare questo commento\n" + pr.toString())
 										}
 									}
-								if(typeof e.likes != "undefined")
+								/*if(typeof e.likes != "undefined")
 									for(var i = 0; i < e.likes.data.length; i++)
 									{
 										try
@@ -105,7 +105,7 @@ function calcoloFrequenza(id)
 										{
 											console.warn("Non è stato possibile computare questo mi piace!\n" + pr.toString())
 										}
-									}
+									}*/
 
 
 							}
